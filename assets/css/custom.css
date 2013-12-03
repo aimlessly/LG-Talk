@@ -1,0 +1,14 @@
+/**
+ * All your custom CSS should go into this file
+ */
+
+body {
+   padding-top: 15px;
+}
+
+.container,
+.navbar-static-top .container,
+.navbar-fixed-top .container,
+.navbar-fixed-bottom .container {
+  width: 940px;
+}
