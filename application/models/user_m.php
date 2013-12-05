@@ -67,4 +67,13 @@ class user_m extends CI_Model {
 
       return $avatar_names[array_rand($avatar_names)];
     }
+
+    public function check_email_user($email)
+    {
+        $queryString = "select * from user where email = '$email'";
+    $query = $this->db->query($queryString);
+    if($query->num_rows() == 1){
+        return  $query->result();
+    } 
+    }
 }

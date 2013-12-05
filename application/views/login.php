@@ -11,14 +11,11 @@
           </div>
         <?php endif; ?>
 
-        <?php echo form_open('login/login_user') ?>
-
+        <form action="<?=base_url()?>index.php/login/login_user" method="post" name="form1">
         <input type="text" id="username" class="form-control" name="username" placeholder="Username">
         <input type="password" id="password" class="form-control" name="password" placeholder="Password">
-
         <button type="submit" name="submit" class="btn btn-info btn-block btn-lg">Sign in</button>
         <br><br>
-
         </form>
 
 
@@ -53,11 +50,34 @@
             </div>
             <div id="collapseTwo" class="panel-collapse collapse">
               <div class="panel-body" align="center">
-                <p><input type="text" class="form-control" name="register" id="register" placeholder="Fill in your username"></p>
-                <a href="#" id="" class="btn btn-danger">Create</a>
+                <form action="<?=base_url()?>index.php/login/send_mail" method="post" name="form2">
+                  <input type="text" class="form-control" id="register" placeholder="Fill in your Email" value="">
+                  <a class="btn btn-danger" onClick="JavaScript:fncSubmit();">Send</a>
+
+                </form>
+
+                <!--<form action="<?php echo base_url('index.php/login/send_mail'); ?>" method="post">
+                  Enter E-mail: <input type="text" name="e-mail"><input type="submit" name="submit" value="Submit">
+                  <div class="alert alert-danger alert-dismissable">
+                    <a class="close" data-dismiss="alert" href="#">×</a><?php echo $message; ?>
+                  </div>
+                </form>-->
+                
+                
+                <!--<p><input type="text" class="form-control" name="register" id="register" placeholder="Fill in your username"></p>
+                <a href="#" id="" class="btn btn-danger">Create</a>-->
               </div>
             </div>
           </div>
         </div>
+
+<!--<script>
+function fncSubmit()
+{
+  if($("#register").val() == ""){
+  $("#alert_mess").fadeIn("slow");}else{ $("#alert_mess").fadeOut("slow");
+  document.form2.submit();}
+}      
+</script>-->
 
 <?php include 'include/footer.php' ?>
