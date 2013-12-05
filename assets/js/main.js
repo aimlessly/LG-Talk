@@ -26,6 +26,10 @@ $(function () {
       this.$taglineText = this.$tagline.html();
       this.$totalMessageCount = $('.totalMessageCount');
       this.$messageCount = $('.messageCount');
+	  this.$sel_food = $('#sel_food'); 
+	  this.$sel_time = $('#sel_time'); 
+	  this.$sel_money = $('#sel_money'); 
+	  this.$sel_health = $('#sel_health'); 
     },
 
     // Bind document events and assign event handlers.
@@ -34,6 +38,10 @@ $(function () {
       this.$postButton.on('click', this.postMessage);
       this.$newUserButton.on('click', this.addNewUser);
       this.$tagline.on('blur',this.saveTagline);
+	  this.$sel_food.change('selected',this.foodSelect); 
+	  this.$sel_time.change('selected',this.timeSelect); 
+	  this.$sel_money.change('selected',this.moneySelect); 
+	  this.$sel_health.change('selected',this.healthSelect);
     },
 
     // Initialize any extra UI components
@@ -101,6 +109,66 @@ $(function () {
           dataType: 'html'
         });
       }
+    },
+	   
+    foodSelect: function (e) {
+      //$('#Button').removeAttr('disabled');
+      var postUrl = App.baseUrl + '/index.php/main/post_message';
+      var sel_food = $('#sel_food').val();
+      //alert(sel_food);
+      $.ajax({
+          type: "POST",
+          url: postUrl,
+          data: {message : sel_food},
+          success: App.successfulPost,
+          error: App.alertError,
+          dataType: 'html'
+        });
+    },
+         
+    timeSelect: function (e) {
+      //$('#Button').removeAttr('disabled');
+      var postUrl = App.baseUrl + '/index.php/main/post_message';
+      var sel_time = $('#sel_time').val();
+      //alert(sel_time);
+      $.ajax({
+          type: "POST",
+          url: postUrl,
+          data: {message : sel_time},
+          success: App.successfulPost,
+          error: App.alertError,
+          dataType: 'html'
+        });
+    },
+    
+    moneySelect: function (e) {
+      //$('#Button').removeAttr('disabled');
+      var postUrl = App.baseUrl + '/index.php/main/post_message';
+      var sel_money = $('#sel_money').val();
+      //alert(sel_money);
+      $.ajax({
+          type: "POST",
+          url: postUrl,
+          data: {message : sel_money},
+          success: App.successfulPost,
+          error: App.alertError,
+          dataType: 'html'
+        });
+    },
+  
+    healthSelect: function (e) {
+      //$('#Button').removeAttr('disabled');
+      var postUrl = App.baseUrl + '/index.php/main/post_message';
+      var sel_health = $('#sel_health').val();
+      //alert(sel_health);
+      $.ajax({
+          type: "POST",
+          url: postUrl,
+          data: {message : sel_health},
+          success: App.successfulPost,
+          error: App.alertError,
+          dataType: 'html'
+        });
     },
 
     /**
